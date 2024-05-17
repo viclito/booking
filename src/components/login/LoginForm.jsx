@@ -13,7 +13,7 @@ const LoginForm = () => {
         console.log(data);
     }
   return (
-    <Paper sx={{p:2 , width:'340px'}}>
+    <Paper sx={{p:2 , width:'340px',bgcolor:'rgba(255, 255, 255, 0.6)'}}>
         <FormControl component="form"  sx={{width:'100%'}} onSubmit={handleSubmit}>
             <FormLabel sx={{textAlign:'center' , fontSize:'25px' , fontWeight:600 , p:2, color:'#048ec5'}}>Flight LOGIN</FormLabel>
             <Stack spacing={2}>
