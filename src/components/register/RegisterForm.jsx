@@ -15,10 +15,10 @@ const RegisterForm = () => {
         console.log(data);
     }
   return (
-    <Paper sx={{p:2 , width:'340px' , bgcolor:'rgba(255, 255, 255, 0.6)'}}>
+    <Paper sx={{p:2 , width:'340px' , bgcolor:'transparent'}}>
         <FormControl component="form"  sx={{width:'100%'}} onSubmit={handleSubmit}>
             <FormLabel sx={{textAlign:'center' , fontSize:'25px' , fontWeight:600 , p:2, color:'#048ec5'}}>Flight Registration</FormLabel>
-            <Stack spacing={2}>
+            <Stack spacing={2} sx={{ display:'flex' , flexDirection:'column' , gap:{xs:'15px' , sm:'15px' , md:'2px'}}}>
 
             <TextField label='UserName' size='small' helperText=''
                 value={name}
