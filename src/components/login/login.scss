@@ -1,0 +1,135 @@
+.login{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+
+    .inner{
+        z-index: 20;
+        position: relative;
+        max-width: 100%;
+        height: 100%;
+        margin: auto;
+        display: flex;
+
+        .left {
+            position: relative;
+            width: 60%;
+            height: 100%;
+            overflow: hidden;
+            h1{
+                font-size: 40px;
+            }
+            .details{
+                position: relative;
+                z-index: 30;
+                h2{
+                    font-size: 50px;
+                    text-align: center;
+                }
+                h6{
+                    text-align: center;
+                }
+            }
+            .bgimg{
+                position: absolute;
+                width: 150px;
+                height: 120px;
+                z-index: 20;
+                top: 20%;
+                right: 35%;
+                opacity: .99;
+        
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .cloud{
+                position: absolute;
+                top: 10%;
+                left: 20%;
+                width: 60%;
+                height: 60%;
+                opacity: .3;
+                z-index: 10;
+                animation: moveClouds1 40s linear infinite;
+            }
+            .cloud2{
+                position: absolute;
+                top: 1%;
+                left: 1%;
+                width: 60%;
+                height: 80%;
+                opacity: .3;
+                z-index: 8;
+                animation: moveClouds2 60s linear infinite;
+            }
+            .cloud4{
+                position: absolute;
+                top: -10%;
+                left: -10%;
+                width: 60%;
+                height: 90%;
+                opacity: .4;
+                z-index: 6;
+                animation: moveClouds4 60s linear infinite;
+            }
+            .cloud3{
+                position: absolute;
+                top: 10%;
+                left: 10%;
+                width: 100%;
+                height: 70%;
+                opacity: .2;
+                z-index: 21;
+            }
+        }
+        .right{
+            width: 40%;
+            height: 100%;
+            // background: url(../../assets/rightbg.png);
+            // backdrop-filter: blur(100px);
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .left{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            background: linear-gradient(to right bottom, #87CEEB  , #bce8fa ,#80d3f4);
+        }
+    }
+}
+@keyframes moveClouds1 {
+    0% {
+        left: 40%;
+        opacity: .28;
+    }
+    50%{
+        opacity: .4;
+    }
+    100% {
+        left: 20%;
+        opacity: .3;
+    }
+}
+@keyframes moveClouds2 {
+    0% {
+        left: 60%;
+    }
+    100% {
+        left: 30%;
+    }
+}
+@keyframes moveClouds4 {
+    0% {
+        left: 1%;
+    }
+    100% {
+        left: 5%;
+    }
+}
