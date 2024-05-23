@@ -1,16 +1,18 @@
 import {  Button, FormControl,  FormLabel,  Paper, Stack, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../utils/AuthContext';
 
 const LoginForm = () => {
+
+    const { login } = useAuth();
 
     const [name , setName] = useState('')
     const [password , setPassword] = useState('')
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        const data = {name , password }
-        console.log(data);
+        login(name,password)
     }
   return (
     <Paper sx={{p:2 , width:'340px',bgcolor:'transparent'}}>

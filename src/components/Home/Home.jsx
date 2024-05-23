@@ -1,13 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './home.scss'
+import { Box } from '@mui/material';
+import Navbar from '../Navbar';
+import './home.scss';
 
 const Home = () => {
-  return (
-    <div className='home'>
-        <Link to='login'>Go to Login Page</Link>
-    </div>
-  )
-}
 
-export default Home
+  return (
+    <Navbar>
+      <Box sx={{maxWidth:'1300px' , margin:'auto' , p:2}}>Home</Box>
+    </Navbar>
+  );
+};
+
+export default Home;

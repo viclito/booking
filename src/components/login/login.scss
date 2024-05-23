@@ -52,7 +52,7 @@
                 height: 60%;
                 opacity: .3;
                 z-index: 10;
-                animation: moveClouds1 40s linear infinite;
+                animation: moveClouds1 10s linear infinite;
             }
             .cloud2{
                 position: absolute;
@@ -62,7 +62,7 @@
                 height: 80%;
                 opacity: .3;
                 z-index: 8;
-                animation: moveClouds2 60s linear infinite;
+                animation: moveClouds2 20s linear infinite;
             }
             .cloud4{
                 position: absolute;
@@ -72,7 +72,7 @@
                 height: 90%;
                 opacity: .4;
                 z-index: 6;
-                animation: moveClouds4 60s linear infinite;
+                animation: moveClouds4 40s linear infinite;
             }
             .cloud3{
                 position: absolute;
