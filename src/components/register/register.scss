@@ -10,31 +10,36 @@
         height: 100%;
         margin: auto;
         display: flex;
-        flex-direction: row-reverse;
 
         .left {
             position: relative;
-            width: 60%;
+            // width: 60%;
+            flex: 1;
             height: 100%;
             overflow: hidden;
+            h1{
+                font-size: 40px;
+            }
             .details{
                 position: relative;
                 z-index: 30;
                 h2{
-                    font-size: 50px;
+                    padding-top: 30px;
+                    font-size: 36px;
                     text-align: center;
                 }
-                h6{
-                    text-align: center;
+                h5{
+                    text-align: end;
+                    padding: 20px 50px 0 0;
                 }
             }
             .bgimg{
                 position: absolute;
-                width: 150px;
-                height: 120px;
+                width: 100%;
+                height: 100%;
                 z-index: 20;
-                top: 20%;
-                right: 35%;
+                // top: 20%;
+                // right: 35%;
                 opacity: .99;
         
                 img{
@@ -44,13 +49,13 @@
             }
             .cloud{
                 position: absolute;
-                top: 0%;
+                top: 10%;
                 left: 20%;
-                width: 80%;
-                height: 100%;
+                width: 60%;
+                height: 60%;
                 opacity: .3;
                 z-index: 10;
-                animation: moveClouds1 40s linear infinite;
+                animation: moveClouds1 10s linear infinite;
             }
             .cloud2{
                 position: absolute;
@@ -60,17 +65,17 @@
                 height: 80%;
                 opacity: .3;
                 z-index: 8;
-                animation: moveClouds2 60s linear infinite;
+                animation: moveClouds2 20s linear infinite;
             }
             .cloud4{
                 position: absolute;
                 top: -10%;
                 left: -10%;
-                width: 90%;
-                height: 60%;
+                width: 60%;
+                height: 90%;
                 opacity: .4;
                 z-index: 6;
-                animation: moveClouds4 60s linear infinite;
+                animation: moveClouds4 40s linear infinite;
             }
             .cloud3{
                 position: absolute;
@@ -83,8 +88,10 @@
             }
         }
         .right{
-            width: 40%;
+            width: 450px;
             height: 100%;
+            // background: url(../../assets/rightbg.png);
+            // backdrop-filter: blur(100px);
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -92,9 +99,9 @@
         }
         .left{
             display: flex;
+            // justify-content: center;
+            // align-items: center;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
             color: white;
             background: linear-gradient(to right bottom, #87CEEB  , #bce8fa ,#80d3f4);
         }
@@ -141,12 +148,12 @@
     .register .inner .left{
         position: absolute;
     }
-    .register .inner .left .bgimg{
-        width: 240px;
-        height: 190px;
-        top: 40%;
-        right: 25%;
-    }
+    // .register .inner .left .bgimg{
+    //     width: 240px;
+    //     height: 190px;
+    //     top: 40%;
+    //     right: 25%;
+    // }
     .register .inner .left .details , h1{
         display: none;
     }

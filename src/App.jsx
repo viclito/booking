@@ -10,34 +10,43 @@ import LoginRoute from './utils/LoginRoute'
 import Flight from './components/Home/flight/Flight'
 import Stay from './components/Home/stay/Stay'
 import Profile from './components/Home/profile/Profile'
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+const queryClient = new QueryClient()
 
 function App() {
 
   return (
-    <AuthProvider>
-      <Routes>
-        <Route 
-          path='/' 
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path='/login' 
-          element={
-            <LoginRoute>
-              <Login />
-            </LoginRoute>
-          } 
-        />
-        <Route path='/register' element={<Register/>} />
-        <Route path='/flight' element={<Flight/>} />
-        <Route path='/stay' element={<Stay/>} />
-        <Route path='/profile' element={<Profile/>} />
-      </Routes>
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <Routes>
+          <Route 
+            path='/' 
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path='/login' 
+            element={
+              <LoginRoute>
+                <Login />
+              </LoginRoute>
+            } 
+          />
+          <Route path='/register' 
+            element={
+              <LoginRoute> 
+                <Register/>
+              </LoginRoute>} />
+          <Route path='/flight' element={<Flight/>} />
+          <Route path='/stay' element={<Stay/>} />
+          <Route path='/profile' element={<Profile/>} />
+        </Routes>
+      </AuthProvider>
+    </QueryClientProvider>
   )
 }
 

@@ -1,0 +1,66 @@
+{
+  "users": [
+    {
+      "username": "berglin",
+      "password": "Berglin@12",
+      "country": "India",
+      "Phone": "",
+      "email": "ber12@gmail.com",
+      "id": "8b58"
+    },
+    {
+      "username": "sudheer",
+      "password": "Sudheer@12",
+      "country": "India",
+      "Phone": "9032133489",
+      "email": "sudhe23@gmail.com",
+      "id": "df84"
+    },
+    {
+      "username": "admin",
+      "password": "Admin@12",
+      "country": "",
+      "Phone": "",
+      "email": "ber12@gmail.com",
+      "id": "65c6"
+    },
+    {
+      "id": "aed7",
+      "fName": "bersis",
+      "lName": "vinslin",
+      "email": "bers@gmail.com",
+      "number": "2222222222",
+      "name": "bersis",
+      "password": "Akkjj@123"
+    },
+    {
+      "id": "6c0d",
+      "fName": "bersis",
+      "lName": "xwsc",
+      "email": "beeas@gmail.com",
+      "number": "3333333333",
+      "username": "bersis",
+      "password": "Skod@233"
+    },
+    {
+      "id": "15f8",
+      "fName": "ddd",
+      "lName": "fedw",
+      "email": "ec2@jsi2.com",
+      "number": "2222222222",
+      "username": "dddddddddd",
+      "password": "xDjdj2212@#",
+      "country": ""
+    },
+    {
+      "id": "d725",
+      "fName": "berfd",
+      "lName": "sze",
+      "email": "brd#ds@gmail.com",
+      "number": "2222222222",
+      "username": "berger",
+      "password": "JKK@23wdd",
+      "country": ""
+    }
+  ]
+}

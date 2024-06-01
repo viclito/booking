@@ -19,5 +19,19 @@ export const Bedsvg = ({ color }) => (
 export const Usersvg = ({ color }) => (
   <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.5 7.063C16.5 10.258 14.57 13 12 13c-2.572 0-4.5-2.742-4.5-5.938C7.5 3.868 9.16 2 12 2s4.5 1.867 4.5 5.063zM4.102 20.142C4.487 20.6 6.145 22 12 22c5.855 0 7.512-1.4 7.898-1.857a.416.416 0 0 0 .09-.317C19.9 18.944 19.106 15 12 15s-7.9 3.944-7.989 4.826a.416.416 0 0 0 .091.317z" fill={color}/></svg>
 );
+export const Notificationsvg = ({notifynum}) => (
+  <svg width="30px" height="24px" viewBox="0 0 32 32" id="Stock_cut" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <desc />
+    <g strokeWidth="2"> {/* Increase stroke width here */}
+      <path d="M8,27c0,2.209,1.791,4,4,4 s4-1.791,4-4" fill="none" stroke="#000000" />
+      <path d="M15,8.674 C14.091,8.242,13.074,8,12,8h0c-3.866,0-7,3.134-7,7v8l-2,2v2h18v-2l-2-2v-5" fill="none" stroke="#000000" />
+      <line fill="none" stroke="#000000" x1="5" x2="12" y1="23" y2="23" />
+      <path d="M12,5L12,5c-1.105,0-2,0.895-2,2v2h4V7C14,5.895,13.105,5,12,5z" />
+      <line fill="none" stroke="#000000" x1="14" x2="16" y1="23" y2="23" />
+      <circle cx="22" cy="8" fill="none" r="7" stroke="#000000" />
+      <text x="22" y="12" fill="black" fontSize="12" textAnchor="middle" fontWeight="700">{notifynum}</text>
+    </g>
+  </svg>
+);
 
 
