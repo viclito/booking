@@ -1,72 +1,69 @@
 import axios from 'axios';
 import { createContext, useState, useContext, useEffect } from 'react';
-import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
-// Create a context for authentication
 const AuthContext = createContext();
-
-
-const fetchData = async()=>{
-  const response = await axios.get(`http://localhost:4000/users`)
-  return response.data
-}
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [isProfileCompleted, setIsProfileCompleted] = useState(false);
   const navigate = useNavigate();
-
-  const {data : users }= useQuery('users' , fetchData)
 
   useEffect(() => {
     const storedAuth = localStorage.getItem('authenticated');
-    const storedUser = localStorage.getItem('user');
-    if (storedAuth === 'true' && storedUser) {
+    const storedProfileStatus = localStorage.getItem('isProfileCompleted');
+    if (storedAuth === 'true') {
       setIsAuthenticated(true);
-      setCurrentUser(JSON.parse(storedUser));
+      setIsProfileCompleted(storedProfileStatus === 'true');
     }
   }, []);
 
-  const isProfileComplete = (user) => {
-    // Check all fields except username and password
-    return Object.keys(user).every((key) => {
-      if (key === 'username' || key === 'password') return true;
-      return user[key] && user[key].trim() !== '';
-    });
-  };
+  const login = async (email, password) => {
+    try {
+      const response = await axios.post('http://103.104.48.5:8282/api/v1/user/auth/authenticate', {
+        email,
+        password,
+      }, { withCredentials: true });
 
-  const login = (username, password) => {
-    const user = users?.find(
-      (u) => u.username === username && u.password === password
-    );
-    if (user) {
-      setIsAuthenticated(true);
-      setCurrentUser(user);
+      const { accessToken, refreshKey, userInfo } = response.data;
+      const { isProfileCompleted } = userInfo;
+      const { email:getemail } = userInfo;
+
+      localStorage.setItem('token', JSON.stringify(accessToken));
+      localStorage.setItem('refreshToken', refreshKey);
       localStorage.setItem('authenticated', 'true');
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('isProfileCompleted', isProfileCompleted.toString());
+      localStorage.setItem('email', getemail);
 
-      if (isProfileComplete(user)) {
-        navigate('/', { replace: true });
+      setIsAuthenticated(true);
+      setIsProfileCompleted(isProfileCompleted);
+
+      // Redirect based on profile completion
+      if (isProfileCompleted) {
+        navigate('/dashboard', { replace: true });
       } else {
         navigate('/profile', { replace: true });
       }
 
-    } else {
-      alert('Invalid username or password');
+    } catch (err) {
+      console.error('Login error:', err);
+      // Optionally handle the error or display a message to the user
     }
   };
+  
 
   const logout = () => {
     setIsAuthenticated(false);
-    setCurrentUser(null);
+    setIsProfileCompleted(false);
     localStorage.removeItem('authenticated');
-    localStorage.removeItem('user');
-    navigate('/login', { replace: true });
+    localStorage.removeItem('token');
+    localStorage.removeItem('refreshToken');
+    localStorage.removeItem('isProfileCompleted');
+    navigate('/', { replace: true });
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, currentUser, login, logout }}>
+    <AuthContext.Provider value={{ login, logout, isAuthenticated, isProfileCompleted }}>
       {children}
     </AuthContext.Provider>
   );

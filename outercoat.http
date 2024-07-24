@@ -1,0 +1,69 @@
+@token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiZXJnbGluMTk5OEBnbWFpbC5jb20iLCJpc3MiOiJodHRwOi8vd3d3Lm91dGVyY291cnQuY29tLyIsImlhdCI6MTcyMTgyOTk4MywiZXhwIjoxNzIxODM3MTgzfQ.apiQrwwdGxnQhJu_q7rjAy1cJJ5CMlHLgruhxAn_F90
+
+@baseUrl = http://103.104.48.5:8282
+###
+POST {{baseUrl}}/api/v1/user/auth/register
+Content-Type: application/json
+
+{
+    "email": "berglin@gmail.com",
+    "password": "Berglin1998@",
+    "userType": "admin",
+    "firstName": "admin",
+    "lastName": "admin",
+    "phoneNumber": "1234567890"
+}
+
+###
+POST {{baseUrl}}/api/v1/user/auth/authenticate
+Content-Type: application/json
+
+{
+    "email": "berglin1998@gmail.com",
+    "password": "Berglin1998@"
+}
+###
+POST {{baseUrl}}/api/v1/user/auth/refresh-token
+Content-Type: application/json
+
+{
+    "email": "berglin1998@gmail.com",
+    "password": "Berglin1998@"
+}
+
+###
+GET {{baseUrl}}/api/v1/user/profile
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+POST {{baseUrl}}/api/v1/user/profile/update
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "firstName": "Shaji lal",
+    "lastName": "Lal R.",
+    "mobileNumber": "1234567890",
+    "dob": "2000-01-01",
+    "gender": "M",
+    "countryId": "IN",
+    "centerId": "1",
+    "localId": "1",
+    "assemblyName": "Marthandam",
+    "ministerInCharge": "Pas.Jacob"
+}
+###
+GET {{baseUrl}}/api/v1/center
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{baseUrl}}/api/v1/center/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{baseUrl}}/api/v1/center/2/local
+Content-Type: application/json
+Authorization: Bearer {{token}}

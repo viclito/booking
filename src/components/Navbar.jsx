@@ -43,9 +43,9 @@ const Navbar = ({children}) => {
                             <Typography variant='subtitle2' sx={{fontWeight: '600' , fontSize:'14px' , color:'black', textAlign:'start' }}>{capitalizeFirstLetter(currentUser.username)}</Typography>
                         </Box>}
                         <Link to='/profile'>
-                            <Typography variant='subtitle2' sx={{pl:.8 }}>Profile</Typography>
+                            <Typography variant='subtitle2' sx={{pl:.8 }}>PROFILE</Typography>
                         </Link>
-                        <Button onClick={()=>logout()} variant='text' size='small' sx={{ color:' #9e1a88' ,'&:hover': {color: '#7e146a'}}}>LogOut</Button>
+                        <Button onClick={()=>logout()} variant='text' size='small' sx={{ color:' #9e1a88' , fontWeight:700 ,'&:hover': {color: '#7e146a'}}}>LogOut</Button>
                     </Box>
                     
                 </Box>
@@ -54,7 +54,7 @@ const Navbar = ({children}) => {
                 <Box sx={{ flexShrink: 0, height: { md: '100%' }, bgcolor: 'white', p: .8, display: 'flex', width: { xs: '100%', md: 'auto' }, flexDirection: { md: 'column' }, alignItems: 'start', justifyContent: { xs: 'space-evenly', md: 'flex-start' }, boxShadow: '1px 1px 2px #e9e9e9', position: { md: 'relative', xs: 'fixed' }, bottom: 0 }}>
                 <Box sx={{ paddingBottom: { md: '50px' }, paddingTop: { md: '10px' }, display: { md: 'block', xs: 'none' } }}>
                 </Box>
-                <Link to='/' style={{ backgroundColor: pathname === '/' ? '#fbe9f8' : '', borderRadius: '5px' }}>
+                <Link to='/dashboard' style={{ backgroundColor: pathname === '/dashboard' ? '#fbe9f8' : '', borderRadius: '5px' }}>
                     <IconButton disableRipple sx={{ paddingLeft: 1.2, paddingRight: 1.2, display: 'flex', alignItems: 'center', gap: 2 }}>
                     <Homesvg color='#000000' />
                     <AnimatePresence>
@@ -68,7 +68,7 @@ const Navbar = ({children}) => {
                             <Typography
                             variant='subtitle2'
                             sx={{
-                                fontWeight: pathname === '/' ? '600' : '',
+                                fontWeight: pathname === '/dashboard' ? '600' : '',
                                 color: 'black',
                                 textAlign: 'start',
                                 display: { md: 'block', xs: 'none' }

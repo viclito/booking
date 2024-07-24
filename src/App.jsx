@@ -11,6 +11,7 @@ import Flight from './components/Home/flight/Flight'
 import Stay from './components/Home/stay/Stay'
 import Profile from './components/Home/profile/Profile'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import NewComponent from './components/Dummy'
 
 const queryClient = new QueryClient()
 
@@ -21,15 +22,16 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route 
-            path='/' 
+            path='/dashboard' 
             element={
               <ProtectedRoute>
                 <Home />
               </ProtectedRoute>
             } 
           />
+          <Route path='/dummy' element={<NewComponent/>}/>
           <Route 
-            path='/login' 
+            path='/' 
             element={
               <LoginRoute>
                 <Login />
@@ -43,7 +45,12 @@ function App() {
               </LoginRoute>} />
           <Route path='/flight' element={<Flight/>} />
           <Route path='/stay' element={<Stay/>} />
-          <Route path='/profile' element={<Profile/>} />
+          <Route path='/profile' 
+            element={
+              <ProtectedRoute>
+                <Profile/>
+              </ProtectedRoute>} 
+          />
         </Routes>
       </AuthProvider>
     </QueryClientProvider>
