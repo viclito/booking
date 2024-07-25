@@ -17,18 +17,19 @@ const Profile = () => {
   const [centers, setCenters] = useState([]);
   const [selectedCenterId, setSelectedCenterId] = useState('');
   const [local, setLocal] = useState([]);
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    mobileNumber: '',
-    dob: null,
-    gender: '',
-    countryId: '',
-    centerId: '',
-    localId: '',
-    assemblyName: '',
-    ministerInCharge: ''
-  });
+  const [formData, setFormData] = useState({})
+  // const [formData, setFormData] = useState({
+  //   firstName: '',
+  //   lastName: '',
+  //   mobileNumber: '',
+  //   dob: null,
+  //   gender: '',
+  //   countryId: '',
+  //   centerId: '',
+  //   localId: '',
+  //   assemblyName: '',
+  //   ministerInCharge: ''
+  // });
   
   useEffect(() => {
     const localStoredToken = localStorage.getItem('token');
@@ -97,19 +98,20 @@ const Profile = () => {
         const profileData = response.data.recordInfo;
         localStorage.setItem('profile', JSON.stringify(profileData));
         setProfile(profileData);
-        const { firstName , lastName, mobileNumber, dob, gender, countryId, centerId, localId, assemblyName, ministerInCharge } = profileData;
-        setFormData({
-          firstName: firstName || '',
-          lastName: lastName || '',
-          mobileNumber: mobileNumber || '',
-          dob: dob || null,
-          gender: gender || '',
-          countryId: countryId || '',
-          centerId: centerId || '',
-          localId: localId || '',
-          assemblyName: assemblyName || '',
-          ministerInCharge: ministerInCharge || ''
-        });
+        // const { firstName , lastName, mobileNumber, dob, gender, countryId, centerId, localId, assemblyName, ministerInCharge } = profileData;
+        // setFormData({
+        //   firstName: firstName || '',
+        //   lastName: lastName || '',
+        //   mobileNumber: mobileNumber || '',
+        //   dob: dob || null,
+        //   gender: gender || '',
+        //   countryId: countryId || '',
+        //   centerId: centerId || '',
+        //   localId: localId || '',
+        //   assemblyName: assemblyName || '',
+        //   ministerInCharge: ministerInCharge || ''
+        // });
+        setFormData(profileData)
          // Set initial form data
       } catch (err) {
         setError('Failed to fetch profile');
@@ -378,8 +380,8 @@ const Profile = () => {
                         },
                         }}
                     >
-                        <MenuItem value='Male'>Male</MenuItem>
-                        <MenuItem value='Female'>Female</MenuItem>
+                        <MenuItem value='M'>Male</MenuItem>
+                        <MenuItem value='F'>Female</MenuItem>
                     </TextField>
                   </Box>
                   <Box sx={{display:'flex' , flexDirection:"column" ,height:'70px'}}>
@@ -429,7 +431,7 @@ const Profile = () => {
                         name="centerId"
                         select
                         size="small"
-                        value={formData.centerId}
+                        value={formData.centerId || ''}
                         onChange={handleChange}
                         
                         required
@@ -460,7 +462,7 @@ const Profile = () => {
                     >
                       {/* <MenuItem value="" disabled>Select Center</MenuItem> */}
                       {centers && centers.map((item) => (
-                        <MenuItem key={item.id} value={item.id}>
+                        <MenuItem key={item.id} value={String(item.id)}>
                           {item.name}
                         </MenuItem>
                       ))}
@@ -472,7 +474,7 @@ const Profile = () => {
                         name="localId"
                         select
                         size="small"
-                        value={formData.localId}
+                        value={formData.localId || ''}
                         onChange={handleChange}
                         
                         required
@@ -503,7 +505,7 @@ const Profile = () => {
                     >
                       {/* <MenuItem value="" disabled>Select Center</MenuItem> */}
                       {local && local.map((item) => (
-                        <MenuItem key={item.id} value={item.id}>
+                        <MenuItem key={item.id} value={String(item.id)}>
                           {item.name}
                         </MenuItem>
                       ))}
